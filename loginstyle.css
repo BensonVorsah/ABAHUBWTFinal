@@ -1,0 +1,198 @@
+* {
+    font-family: 'Trebuchet MS';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background: linear-gradient(180deg, #2128ac, #a30635);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+    /* Header */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 2%;
+    background-color: #2128ac;
+    color: #fff;
+    flex-wrap: wrap; 
+}
+
+.header .logo img {
+    padding-inline: 10% 5%;
+    width: 80px; /* Set a responsive width */
+    height: auto;
+    max-height: 85px;
+    margin-top: -5px;;
+    margin-bottom: -5px;
+    margin-left: 25px;
+}
+
+.header .logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.header .logo :hover {
+    transform: translateY(-5px);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allows nav items to wrap */
+    padding-inline: 10% 5%;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+.nav :hover {
+    transform: translateY(-5px);
+    color: red;
+}
+
+.nav .search {
+    padding: 5px;
+    font-size: 1rem;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.container {
+    width: 420px;
+    background-color: #ffffff; 
+    border: 2px solid rgba(160, 160, 160, 0.3); 
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); 
+    color: #000000; 
+    border-radius: 12px;
+    padding: 40px 50px;
+    backdrop-filter: blur(15px);
+    margin-top: 30px;
+}
+
+.container h1 {
+    font-size: 40px;
+    font-family: 'Trebuchet MS';
+    font-weight: bolder;
+    text-align: center;
+    color: #000000; 
+    margin-bottom: 20px;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #000000;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 255px;
+    border: 2px solid rgb(0, 0, 0); 
+    background: rgba(255, 255, 255, 0.2);
+    color: #000000; 
+}
+
+.input-box input:focus {
+    border-color: var(--color-theme-primary);
+    outline: none;
+}
+
+.input-box input::placeholder {
+    color: rgb(0, 0, 0, 0.5); 
+}
+
+.container .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 10px 0 20px;
+    color: #000000; 
+}
+
+.remember-forgot a {
+    color: #ff0000; 
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.container .btn {
+    width: 100%;
+    height: 45px;
+    background: #000000; 
+    border-radius: 255px;
+    box-shadow: 0px 10px 15px rgba(200, 207, 209, 0.655); 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff; 
+    transition: background-color 0.3s;
+}
+
+.container .btn:hover {
+    background: linear-gradient(125deg, #5207ae, #941454); 
+}
+
+.container .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 25px 0 15px;
+    color: #000000;
+}
+
+.register-link p a {
+    color: #ff0000; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .container h1 {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}

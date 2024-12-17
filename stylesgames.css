@@ -1,0 +1,466 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Reset and Base Styles */
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color Palette */
+    --color-text-primary: #1c2a38;
+    --color-text-secondary: #8A8F98;
+    --color-text-alert: #d72641;
+    --color-text-icon: #dbdade;
+    --color-bg-primary: #fff;
+    --color-bg-secondary: #f3f5f9;
+    --color-bg-alert: #ebfdea;
+    --color-theme-primary: #1d428a;
+    --color-theme-secondary: #3c5f9a;
+
+    /* Dark Mode Colors */
+    --color-text-primary-dark: #e0e0e0;
+    --color-text-secondary-dark: #a0a0a0;
+    --color-bg-primary-dark: #040523;
+    --color-bg-secondary-dark: #09071f;
+    --color-theme-primary-dark: #0c45b7;
+    --color-theme-secondary-dark: #3f80e9;
+
+    /* Typography */
+    --font-base: "Inter", sans-serif;
+    
+    /* Shadows and Transitions */
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.15);
+    --transition-smooth: all 0.3s ease-in-out;
+
+    --shadow-subtle-dark: white;
+    --shadow-medium-dark: white;
+}
+
+body {
+    font-family: var(--font-base);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-secondary);
+    transition: var(--transition-smooth)
+}
+
+/* Games Container */
+.games-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Team Logo Container Adjustment */
+.team-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.team-best-performer {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    border: 2px solid var(--color-bg-primary-dark);
+}
+
+.team-best-performer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Prediction Bar Styles */
+.prediction-bar {
+    display: flex;
+    width: 100%;
+    background-color: var(--color-bg-secondary-dark);
+    height: 40px;
+    position: relative;
+}
+
+.prediction-team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+    overflow: hidden;
+    position: relative;
+}
+
+.prediction-team.home-team {
+    background-color: #0c45b7;
+    text-align: left;
+}
+
+.prediction-team.away-team {
+    background-color: #d72641;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.prediction-team .team-name {
+    z-index: 2;
+    position: relative;
+}
+
+.prediction-team .vote-count {
+    z-index: 2;
+    position: relative;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Section Styles */
+.current-week-games,
+.past-games,
+.future-games {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--color-theme-primary);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--color-theme-primary);
+    padding-bottom: 10px;
+}
+
+.games-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.games-toggle button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.games-toggle button.active {
+    background-color: #007bff;
+    color: white;
+}
+.games-view {
+    display: none;
+}
+.games-view.active {
+    display: block;
+}
+
+/* Game Card Base Styles */
+.game-card {
+    background-color: var(--color-bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Game Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--color-theme-secondary);
+    color: white;
+}
+
+.game-status {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    background-color:var(--color-text-alert);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.game-tournament-logo img {
+    max-height: 50px;
+    max-width: 100px;
+}
+
+.game-round {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Game Content */
+.game-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.team-logo {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: 10px;
+}
+
+.team-logo img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.team-name {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.team-star-player {
+    width: 80px;
+    height: 80px;
+    border-radius: 70%;
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+}
+
+.team-star-player img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Game Details */
+.game-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    text-align: center;
+}
+
+.game-home-indicator {
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+}
+
+.game-date-time {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.date {
+    font-weight: 600;
+    color: var(--color-theme-primary);
+}
+
+.time {
+    color: var(--color-text-secondary);
+}
+
+.predict-button,
+.box-score-button,
+.watch-game-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-theme-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    transition: var(--transition-smooth);
+}
+
+.predict-button:hover,
+.box-score-button:hover,
+.watch-game-button:hover {
+    background-color: var(--color-text-alert);
+    transform: translateY(-2px);
+}
+
+/* Prediction Bar */
+.prediction-bar {
+    display: flex;
+    width: 100%;
+    background-color: var(--color-bg-secondary);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.prediction-team {
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+}
+
+.total-votes {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-theme-secondary);
+    color: white;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.game-rating-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-theme-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.game-rating-circle:hover {
+    transform: scale(1.1);
+    background-color: var(--color-text-alert);
+}
+
+.prediction-bar .prediction-details {
+    display: flex;
+    width: 100%;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.prediction-bar .home-team,
+.prediction-bar .away-team {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.prediction-bar:hover {
+    background-color: #007bff;
+}
+
+.prediction-bar .home-team {
+    background-color: #0c45b7;
+}
+
+.prediction-bar .away-team {
+    background-color: #d72641;
+}
+
+.prediction-bar .vote-bar {
+    height: 10px;
+    background-color: green !important; /* Customize the color as needed */
+    height: 50px !important;
+    transition: width 0.5s ease;
+}
+
+.home-team .vote-bar {
+    margin-right: auto;
+}
+
+.away-team .vote-bar {
+    margin-left: auto;
+}
+
+.submit-btn {
+    background-color: red;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .game-content {
+        flex-direction: column;
+    }
+
+    .team,
+    .game-details {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .team-logo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Accessibility and Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .game-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Responsive and Accessibility Styles */
+@media (max-width: 768px) {
+    .team-logo-container {
+        position: relative;
+    }
+
+    .team-best-performer {
+        position: absolute;
+        bottom: -10px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+    }
+}
+ 
+.prediction-bar .vote-bar {
+    height: 10px;
+    transition: width 0.5s ease;
+}
+
+.prediction-bar .home-vote-bar {
+    background-color: var(--color-theme-primary);
+    margin-right: auto;
+}
+
+.prediction-bar .away-vote-bar {
+    background-color: var(--color-text-alert);
+    margin-left: auto;
+}

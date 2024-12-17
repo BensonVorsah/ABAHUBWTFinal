@@ -1,0 +1,150 @@
+/* File: team_styles.css */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.team-header {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.team-logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.team-header-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
+
+.team-record {
+    display: flex;
+    gap: 20px;
+    font-size: 1em;
+}
+
+.team-stats, .team-leadership, .team-roster {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.stat-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.stat-rank {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.leadership-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.leadership-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.leadership-name {
+    font-size: 1.1em;
+}
+
+.team-roster table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.team-roster th, .team-roster td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.team-roster th {
+    background-color: #333;
+    color: white;
+}
+
+.team-roster tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-grid, .leadership-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .team-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-logo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .team-record {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid, .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}

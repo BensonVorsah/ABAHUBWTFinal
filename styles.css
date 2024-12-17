@@ -1,0 +1,240 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Welcome Section Styles */
+#welcome {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-slide.active {
+    opacity: 1;
+}
+
+.welcome-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+    position: relative;
+}
+
+.left-content, .right-content {
+    width: 30%;
+    text-align: center;
+}
+
+.left-content img, .right-content img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.background-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.login-btn, .signup-btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.login-btn {
+    background-color: #3B82F6;
+}
+
+.signup-btn {
+    background-color: #10B981;
+}
+
+/* Results and Upcoming Games Sections */
+#results, #schedule {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.results-container, .games-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.result-card, .game-card {
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 250px;
+}
+
+/* Teams Section */
+#teams {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.teams-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-card {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    width: 200px;
+}
+
+.team-card img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Standings Section */
+#standings table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#standings th, #standings td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Stats Leaders Section */
+#stats-leaders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-container {
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+}
+
+.stats-container table {
+    width: 60%;
+}
+
+.player-card {
+    width: 30%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: none;
+}
+
+.stat-row:hover {
+    background-color: #f1f1f1;
+}
+
+/* Awards Section */
+#awards .awards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.award-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 250px;
+}
+
+/* Media Section */
+#media .media-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.media-card {
+    width: 200px;
+    text-align: center;
+}
+
+.media-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
