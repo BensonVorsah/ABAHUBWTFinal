@@ -169,32 +169,22 @@ function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 3) {
     <script src="dashboard.js"></script>
 </head>
 <body>
-    <div class="dashboard-container">
+<div class="dashboard-container">
         <!-- Welcome Section -->
         <section id="welcome" class="dashboard-section">
-            <div class="welcome-background-slider">
-                <?php foreach($welcome_images as $image): ?>
-                    <div class="background-image" style="background-image: url('<?php echo htmlspecialchars($image['image_path']); ?>')"></div>
-                <?php endforeach; ?>
-                <div class="background-dots">
-                    <?php foreach($welcome_images as $index => $image): ?>
-                        <span class="dot" data-index="<?php echo $index; ?>"></span>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            
             <div class="welcome-content">
                 <div class="welcome-left">
-                    <img src="abahub-logo.png" alt="ABAHUB Logo">
+                    <h1>Welcome to ABAHUB</h1>
                     <p>ABAHUB is home to all things ABA. The number 1 Hub of the ABA.</p>
-                </div>
-                
-                <div class="welcome-right">
-                    <img src="images/welcome.png" alt="ABA Teams">
                     <div class="auth-buttons">
                         <a href="login.php" class="btn btn-login">Login</a>
                         <a href="signup.php" class="btn btn-signup">Sign Up</a>
                     </div>
+                </div>
+                
+                <div class="welcome-right">
+                    <h2>Explore ABA Basketball</h2>
+                    <p>Get real-time updates, stats, and highlights from your favorite teams and players.</p>
                 </div>
             </div>
         </section>
@@ -338,8 +328,8 @@ function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 3) {
                         <div class="award-name">
                             <?php echo htmlspecialchars($award['award_name']); ?>
                         </div>
-                        <div class="player-name">
-                            <img scr="<?php echo htmlspecialchars($award['player_image'] ?? 'images/curry.jpg'); ?>" alt="<?php echo htmlspecialchars($award['Fname']. ' ' .$award['Lname']); ?>">
+                        <div class="player-image">
+                            <img scr="<?php echo htmlspecialchars($award['player_image']); ?>" alt="<?php echo htmlspecialchars($award['Fname']. ' ' .$award['Lname']); ?>">
                             <div class="player-name">
                                 <?php echo htmlspecialchars($award['Fname']); ?>
                                 <?php echo htmlspecialchars($award['Lname']); ?>
@@ -351,35 +341,30 @@ function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 3) {
         </section>
 
         
-        <!-- Media Section -->
-<section id="media" class="dashboard-section">
-    <h2>Latest Highlights</h2>
-    <div class="media-container">
-        <?php         
-        // Use the function defined in media.php
-        $videos = fetchYouTubePlaylistVideos($youtubeApiKey, $playlistId);
-        
-        foreach($videos as $video): 
-        ?>
-        <iframe
-            class="video-embed"
-            src="https://www.youtube.com/embed/<?= htmlspecialchars($video['video_id']) ?>"
-            title="<?= htmlspecialchars($video['title']) ?>"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-    <?php endforeach; ?>
-    <div class="view-all-media">
-        <a href="media.php" class="btn btn-view-all">View All Highlights</a>
-    </div>
-
-    
-</section>
-        
-
-        
+        <section id="media" class="dashboard-section">
+            <h2>Latest Highlights</h2>
+            <div class="media-container">
+                <?php 
+                $videos = fetchYouTubePlaylistVideos($youtubeApiKey, $playlistId);
+                
+                foreach($videos as $video): 
+                ?>
+                    <div class="media-card">
+                        <iframe
+                            class="video-embed"
+                            src="https://www.youtube.com/embed/<?= htmlspecialchars($video['video_id']) ?>"
+                            title="<?= htmlspecialchars($video['title']) ?>"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="view-all-media">
+                <a href="media.php" class="btn btn-view-all">View All Highlights</a>
+            </div>
+        </section>
     </div>
 </body>
 </html>

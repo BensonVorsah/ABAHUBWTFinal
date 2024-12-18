@@ -191,3 +191,96 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* Global Color Palette */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --card-background: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --accent-color: #e74c3c;
+}
+
+.players-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    background-color: var(--background-color);
+}
+
+.player-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.player-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    transform: translateY(0);
+}
+
+.player-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.player-card .player-image {
+    height: 300px;  /* Kept slightly larger for visual impact */
+    width: 100%;
+    overflow: hidden;
+}
+
+.player-card .player-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.player-card:hover .player-image img {
+    transform: scale(1.1);
+}
+
+.player-info {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.player-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.player-position {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.team-name {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .players-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .player-card .player-image {
+        height: 250px;
+    }
+}
