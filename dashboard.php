@@ -114,7 +114,7 @@ $youtubeApiKey = 'AIzaSyBZlQiRoTbQsTc97ctKpPZgYwb4B0n5e1M';
 $playlistId = 'PLXlvFN0gKJA5nXpVeX9Uq999DbKREL446';
 
 // Function to fetch playlist items from YouTube
-function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 3) {
+function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 2) {
     $apiUrl = "https://www.googleapis.com/youtube/v3/playlistItems?" . http_build_query([
         'part' => 'snippet',
         'playlistId' => $playlistId,
@@ -338,11 +338,10 @@ function fetchYouTubePlaylistVideos($apiKey, $playlistId, $maxResults = 3) {
                         <div class="award-name">
                             <?php echo htmlspecialchars($award['award_name']); ?>
                         </div>
-                        <div class="player-name">
-                            <img scr="<?php echo htmlspecialchars($award['player_image'] ?? 'images/curry.jpg'); ?>" alt="<?php echo htmlspecialchars($award['Fname']. ' ' .$award['Lname']); ?>">
+                        <div class="player-image">
+                            <img scr="<?php echo htmlspecialchars($award['player_image']); ?>" alt="<?php echo htmlspecialchars($award['Fname']. ' ' .$award['Lname']); ?>">
                             <div class="player-name">
-                                <?php echo htmlspecialchars($award['Fname']); ?>
-                                <?php echo htmlspecialchars($award['Lname']); ?>
+                                <?php echo htmlspecialchars($award['Fname']. ' ' . $award['Lname']);?>
                             </div>
                         </div>
                     </div>

@@ -136,6 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <div class="signup-link">
             <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+            <a href="admin_login.php">Admin Login</a>
         </div>
     </div>
 </body>

@@ -1,4 +1,5 @@
 <?php
+
 // Navbar.php - ABAHUB Navbar Component
 session_start(); // Start session to manage user login state
 

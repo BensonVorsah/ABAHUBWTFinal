@@ -9,6 +9,11 @@ CREATE TABLE  admini  (
    email  varchar(50) DEFAULT NULL
 );
 
+INSERT INTO admini (username, usr_password, email) VALUES
+('admin', 'adminpass1', 'admin@gmail.com'),
+('admin2', 'adminpass2', 'admin2@gmail.com'),
+('superadmin', 'superadminpass', 'superadmin@gmail.com');
+
 
 CREATE TABLE  matches  (
    match_id  int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -152,7 +157,7 @@ INSERT INTO players (player_id, Fname, Lname, team_id, jersey_number, position, 
 (21082024, 'Dawud', 'Curry', 5, '84', 'SG', 6.0, 110.61, 'Retired', 'No bio available', 21082024, "images/player_photos/curry.png"),
 (55232025, 'Sugri', 'Amaleboba', 4, '6', 'SG', 6.0, 67.55, 'Active', 'aka Suuu', 55232025, "images/player_photos/curry.png"),
 (49272025, 'Ayo', 'Balima', 4, '81', 'PF', 6.2, 65.93, 'Active', 'No bio available', 49272025, "images/player_photos/westbrook.png"),
-(52112026, 'Boss', 'Baeta', 4, '91', 'PG', 6.0, 80.39, 'Active', 'I am speed', 52112026, n"images/player_photos/cade.png"),
+(52112026, 'Boss', 'Baeta', 4, '91', 'PG', 6.0, 80.39, 'Active', 'I am speed', 52112026, "images/player_photos/cade.png"),
 (11182024, 'David ', 'Quaynor', 2, '80', 'PF', 6.2, 91.18, 'Retired', 'aka. Icy', 11182024, "images/player_photos/booker.png"),
 (14802024, 'Jalil', 'Thomas', 2, '36', 'SF', 6.1, 67.51, 'Active', 'No bio available', 14802024, "images/player_photos/westbrook.png"),
 (58662024, 'Kofi', 'Menka', 2, '1', 'PG', 5.9, 79.82, 'Retired', 'No bio available', 58662024, null),
@@ -482,6 +487,14 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fav_team ENUM ('AshKnights', 'Berekuso Warriors', 'HillBlazers', 'Longshots', 'Los Astros')
 );
+
+INSERT INTO users(user_id, username, gender, email, password_hash, role, fav_team) VALUES
+(81002026, 'benson_burner', 'Male', 'benson@gmail.com', 'ben12345', 'ABA Star', 'AshKnights'),
+(56752026, 'raychel', 'Female', 'raychel@gmail.com', 'rach12345', 'ABA Fan', 'AshKnights'),
+(11002026, 'Francis', 'Male', 'francis@gmail.com', 'francis12345', 'ABA Fan', 'HillBlazers'),
+(03982025, 'Thompson', 'Male', 'thompson@gmail.com', 'thompson12345', 'ABA Star', 'Longshots');
+
+
 
 CREATE TABLE awards (
    award_id INT PRIMARY KEY,

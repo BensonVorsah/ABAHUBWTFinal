@@ -129,26 +129,149 @@ body {
     border-bottom: 1px solid #e0e0e0;
 }
 
+
+/* Reduce logo sizes across the dashboard */
+body img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+/* Welcome section logo and images */
+.welcome-left img {
+    max-width: 150px;
+    max-height: 80px;
+}
+
+.welcome-right img {
+    max-width: 250px;
+    max-height: 80px;
+}
+
+/* Team logos */
+.team-card img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+/* Standings table logos */
+.standings-table img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* Results section team logos */
+.result-card img {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+/* Awards section player images */
+.award-card img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+/* Ensure images maintain aspect ratio and are centered */
+img {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Global Styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Styling */
+.dashboard-section {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-section h2 {
+    color: #1a73e8;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+/* Welcome Section */
+#welcome {
+    background-image: url('images/court 1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#welcome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Darkens the background for better text visibility */
+    z-index: 1;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.auth-buttons {
+    color: white;
+}
+
 /* Media Section */
 .media-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .video-embed {
     width: 100%;
+    height: 450px; /* Increased height to make videos more prominent */
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .video-embed:hover {
     transform: scale(1.05);
-}
-
-.view-all-media {
-    text-align: center;
-    margin-top: 25px;
 }
 
 /* Responsive Design */
@@ -161,4 +284,9 @@ body {
     .welcome-content > * {
         margin-bottom: 20px;
     }
+
+    .video-embed {
+        height: 250px; /* Smaller height for mobile */
+    }
 }
+
