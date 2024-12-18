@@ -16,7 +16,7 @@ require_once 'Parsedown.php'; // Make sure to include Parsedown library for mark
     <div class="about-container">
         <header class="about-header">
             <div class="header-overlay">
-                <h1>About ABA Hub</h1>
+                <h1>About ABAHUB</h1>
                 <p>Empowering Athletes, Inspiring Futures</p>
             </div>
         </header>
