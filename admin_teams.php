@@ -1,12 +1,12 @@
 <?php
 session_start();
+require_once 'db_connection.php';
+
 // Check if admin is logged in
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: admin_login.php");
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin_login.php');
     exit();
 }
-
-require_once 'db_connection.php';
 
 // Handle team deletion
 if (isset($_GET['delete']) && isset($_GET['team_id'])) {
@@ -178,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     '<?php echo htmlspecialchars($team['team_color'], ENT_QUOTES); ?>', 
                                     '<?php echo htmlspecialchars($team['text_color'], ENT_QUOTES); ?>'
                                 )" 
-                                class="bg-yellow-500 text-white px-3 py-1 rounded mr-2"
+                                class="bg-blue-500 text-white px-3 py-1 rounded mr-2"
                             >
                                 Edit
                             </button>
@@ -274,3 +274,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 </html>
+<?php
+include 'footer.php';
+?>

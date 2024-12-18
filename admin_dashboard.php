@@ -37,15 +37,13 @@ foreach ($stats_queries as $key => $query) {
     <meta charset="UTF-8">
     <title>Admin Dashboard - ABA Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+    <?php include 'admin_navbar.php'; ?>
     <div class="container mx-auto px-4 py-8">
         <header class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-bold">Admin Dashboard</h1>
-            <div>
-                <span class="mr-4">Welcome, <?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
-                <a href="admin_logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</a>
-            </div>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">

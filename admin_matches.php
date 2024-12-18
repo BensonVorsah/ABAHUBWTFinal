@@ -3,11 +3,10 @@ session_start();
 require_once 'db_connection.php';
 
 // Check if admin is logged in
-if (!isset($_SESSION['admin_id'])) {
-    header("Location: admin_login.php");
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin_login.php');
     exit();
 }
-
 // Handle Add Match
 if (isset($_POST['add_match'])) {
     $team1_id = $_POST['team1_id'];
@@ -87,10 +86,12 @@ $matches_result = $conn->query($matches_query);
     <meta charset="UTF-8">
     <title>Admin - Matches Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <?php include 'admin_navbar.php'; ?>
     <div class="container mt-5">
-        <h2 class="mb-4">Matches Management</h2>
+        <h1 class="text-3xl font-bold">Matches Management</h1>
         
         <?php if (isset($success_message)): ?>
             <div class="alert alert-success"><?php echo $success_message; ?></div>
@@ -197,7 +198,7 @@ $matches_result = $conn->query($matches_query);
                                     <?php echo $match['team1_score'] ?? 'null'; ?>,
                                     <?php echo $match['team2_score'] ?? 'null'; ?>,
                                     '<?php echo $match['highlight_url'] ?? ''; ?>'
-                                )" class="btn btn-sm btn-warning">Edit</button>
+                                )" class="btn btn-sm btn-primary">Edit</button>
                                 <a href="?delete_match=<?php echo $match['match_id']; ?>" 
                                    onclick="return confirm('Are you sure you want to delete this match?');" 
                                    class="btn btn-sm btn-danger">Delete</a>
@@ -231,3 +232,6 @@ $matches_result = $conn->query($matches_query);
     </script>
 </body>
 </html>
+<?php
+include 'footer.php';
+?>

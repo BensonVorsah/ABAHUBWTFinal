@@ -80,9 +80,11 @@ $teams_result = $conn->query($teams_query);
 <html>
 <head>
     <title>Admin - Players Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Players Management</h1>
+    <?php include 'admin_navbar.php'; ?>
+    <h1 class="text-3xl font-bold">Players Management</h1>
 
     <?php if (isset($success_message)): ?>
         <p style="color: green;"><?php echo $success_message; ?></p>
@@ -188,3 +190,6 @@ $teams_result = $conn->query($teams_query);
     </script>
 </body>
 </html>
+<?php
+include 'footer.php';
+?>

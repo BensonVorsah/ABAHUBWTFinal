@@ -62,9 +62,11 @@ $users_result = $conn->query($users_query);
 <html>
 <head>
     <title>Admin - Users Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Users Management</h1>
+    <?php include 'admin_navbar.php'; ?>
+    <h1 class="text-3xl font-bold">Users Management</h1>
 
     <?php if (isset($success_message)): ?>
         <p style="color: green;"><?php echo $success_message; ?></p>
@@ -151,3 +153,6 @@ $users_result = $conn->query($users_query);
     </script>
 </body>
 </html>
+<?php
+include 'footer.php';
+?>
